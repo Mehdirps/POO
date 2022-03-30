@@ -3,7 +3,7 @@
 /**
  * Bank Account
  */
-class Account
+abstract class Account
 {
     // Propriétés
     /**
@@ -11,14 +11,18 @@ class Account
      *
      * @var string
      */
-    public $owner;
+    // public $owner;
+    private $owner;
 
     /**
      * Account pay
      *
      * @var float
      */
-    public $pay;
+    // public $pay;
+    private $pay;
+
+    const INTRESTING = 0.5;
 
     /**
      * Account constructor
@@ -29,9 +33,64 @@ class Account
     public function __construct(string $owner, float $pay = 0)
     {
         $this->owner = $owner;
-        $this->pay = $pay;
+        $this->pay = $pay + ($pay * self::INTRESTING / 100);
+
+        echo $this->negativ() . "<br>";
+    }
+    /**
+     * Convert object to string and return Owner
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->owner;
     }
 
+    /**
+     * Getter : Give access to the Onwer name
+     *
+     * @return string
+     */
+    public function getOwner(): string
+    {
+        return $this->owner;
+    }
+    /**
+     * Modify Owner name and return result
+     *
+     * @param string $owner  Owner
+     * @return Compte
+     */
+    public function setOwner(string $owner): self
+    {
+        if ($owner != "") {
+            $this->owner = $owner;
+        }
+        return $this;
+    }
+    /**
+     * Getter : Give acces to the pay of account
+     *
+     * @return float
+     */
+    public function getPay(): float
+    {
+        return $this->pay;
+    }
+    /**
+     * Modify pay and return result
+     *
+     * @param float $pay Pay
+     * @return Compte
+     */
+    public function setPay(float $pay): self
+    {
+        if ($pay > 0) {
+            $this->pay = $pay;
+        }
+        return $this;
+    }
     /**
      * Return owner and pay of account
      *
@@ -67,6 +126,15 @@ class Account
         } else {
             echo "Montant ou solde insuffisant";
         }
+        echo $this->negativ() . "<br>";
     }
-    
+
+    private function negativ()
+    {
+        if ($this->pay < 0) {
+            return "Vous êtes à découvert";
+        } else {
+            return "Vous n'êtes pas à découvert";
+        }
+    }
 }
