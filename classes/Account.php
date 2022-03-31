@@ -3,7 +3,7 @@
 /**
  * Bank Account
  */
-abstract class Account
+ class Account
 {
     // Propriétés
     /**
@@ -22,7 +22,6 @@ abstract class Account
     // public $pay;
     private $pay;
 
-    const INTRESTING = 0.5;
 
     /**
      * Account constructor
@@ -33,9 +32,7 @@ abstract class Account
     public function __construct(string $owner, float $pay = 0)
     {
         $this->owner = $owner;
-        $this->pay = $pay + ($pay * self::INTRESTING / 100);
-
-        echo $this->negativ() . "<br>";
+        $this->pay = $pay;
     }
     /**
      * Convert object to string and return Owner
@@ -125,16 +122,6 @@ abstract class Account
             $this->pay -= $pay;
         } else {
             echo "Montant ou solde insuffisant";
-        }
-        echo $this->negativ() . "<br>";
-    }
-
-    private function negativ()
-    {
-        if ($this->pay < 0) {
-            return "Vous êtes à découvert";
-        } else {
-            return "Vous n'êtes pas à découvert";
         }
     }
 }
