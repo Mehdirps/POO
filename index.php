@@ -1,13 +1,11 @@
 <?php
 
+use App\Autoload;
 use App\Client\Account as ClientAccount;
 use App\Bank\{CurrentAccount, SavingAccount, SavingCurrentAccount};
 
-require_once 'classes/Bank/Account.php';
-require_once 'classes/Bank/CurrentAccount.php';
-require_once 'classes/Bank/SavingAccount.php';
-require_once 'classes/Bank/SavingCurrentAccount.php';
-require_once 'Classes/Client/Account.php';
+require_once 'Classes/Autoload.php';
+Autoload::register();
 
 $currentAccount1 = new CurrentAccount('Mehdi', 500, 200);
 
