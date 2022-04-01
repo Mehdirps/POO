@@ -1,6 +1,8 @@
 <?php
 namespace App\Bank;
 
+use App\Client\Account as ClientAccount;
+
 /**
  * Current account with intressting
  */
@@ -16,13 +18,13 @@ class SavingCurrentAccount extends SavingAccount
     /**
      * Current account constructor
      *
-     * @param string $owner Owner of account
+     * @param Clientaccount $account account of client
      * @param float $pay Pay of account
      * @param integer $negativ negativ pay of account
      */
-    public function __construct(string $owner, float $pay, float $intressting, int $negativ)
+    public function __construct(ClientAccount $account, float $pay, float $intressting, int $negativ)
     {
-        parent::__construct($owner, $pay, $intressting);
+        parent::__construct($account, $pay, $intressting);
 
         $this->negativ = $negativ;
     }

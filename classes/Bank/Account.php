@@ -1,5 +1,9 @@
 <?php
+
 namespace App\Bank;
+
+use App\Client\Account as ClientAccount;
+
 /**
  * Bank Account
  */
@@ -9,10 +13,10 @@ abstract class Account
     /**
      * Owner of account
      *
-     * @var string
+     * @var ClientAccount 
      */
     // public $owner;
-    protected $owner;
+    protected ClientAccount $owner;
 
     /**
      * Account pay
@@ -26,12 +30,12 @@ abstract class Account
     /**
      * Account constructor
      *
-     * @param string $owner Name of the owner
+     * @param ClientAccount $account account of client
      * @param float $pay Pay of the owner account
      */
-    public function __construct(string $owner, float $pay = 0)
+    public function __construct(ClientAccount $account, float $pay = 0)
     {
-        $this->owner = $owner;
+        $this->owner = $account;
         $this->pay = $pay;
     }
     /**
@@ -47,22 +51,23 @@ abstract class Account
     /**
      * Getter : Give access to the Onwer name
      *
-     * @return string
+     * @return ClientAccount $account
      */
-    public function getOwner(): string
+    public function getOwner(): ClientAccount
     {
         return $this->owner;
     }
     /**
      * Modify Owner name and return result
      *
-     * @param string $owner  Owner
+     * @param ClientAccount $account account of client
      * @return Compte
      */
-    public function setOwner(string $owner): self
+    public function setOwner(ClientAccount $account): self
     {
-        if ($owner != "") {
-            $this->owner = $owner;
+        if (isset($account)) {
+
+            $this->owner = $account;
         }
         return $this;
     }

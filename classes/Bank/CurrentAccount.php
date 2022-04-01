@@ -1,5 +1,8 @@
 <?php
 namespace App\Bank;
+
+use App\Client\Account as ClientAccount;
+
 /**
  * Extends object Account for create a current account
  */
@@ -15,13 +18,13 @@ class CurrentAccount extends Account
     /**
      * Current account constructor
      *
-     * @param string $owner Owner of account
+     * @param ClientAccount $account account of client
      * @param float $pay Pay of account
      * @param integer $negativ negativ pay of account
      */
-    public function __construct(string $owner, float $pay, int $negativ)
+    public function __construct(ClientAccount $account, float $pay, int $negativ)
     {
-        parent::__construct($owner, $pay);
+        parent::__construct($account, $pay);
 
         $this->negativ = $negativ;
     }

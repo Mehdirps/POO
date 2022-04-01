@@ -1,6 +1,8 @@
 <?php
 namespace App\Bank;
 
+use App\Client\Account as ClientAccount;
+
 /**
  *  Account with intresting, extends account
  */
@@ -16,13 +18,13 @@ class SavingAccount extends Account
     /**
      * Saving account constructor
      *
-     * @param string $owner Owner of account
+     * @param ClientAccount $account account of client
      * @param float $pay Pay of account
      * @param integer $intressting Intressting of account
      */
-    public function __construct(string $owner, float $pay, float $intressting)
+    public function __construct(ClientAccount $account, float $pay, float $intressting)
     {
-        parent::__construct($owner, $pay);
+        parent::__construct($account, $pay);
 
         $this->intressting = $intressting;
     }

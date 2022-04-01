@@ -7,28 +7,31 @@ use App\Bank\{CurrentAccount, SavingAccount, SavingCurrentAccount};
 require_once 'Classes/Autoload.php';
 Autoload::register();
 
-$currentAccount1 = new CurrentAccount('Mehdi', 500, 200);
+$client = new ClientAccount('Raposo', 'Mehdi', 'Sens');
 
-$currentAccount1->setOwner('Robert');
+$client2 = new ClientAccount('Salut', 'Robert', 'Marseille');
 
-$currentAccount1->remove(700);
+$currentAccount1 = new CurrentAccount($client, 500, 200);
+
+$currentAccount1->setOwner($client2);
+
+$currentAccount1->remove(300);
 
 var_dump($currentAccount1);
 
-$savingAccount = new SavingAccount('Patrick', 1298, 1.5);
+// $savingAccount = new SavingAccount('Patrick', 1298, 1.5);
 
-$savingAccount->addIntressting();
+// $savingAccount->addIntressting();
 
-var_dump($savingAccount);
+// var_dump($savingAccount);
 
-$savingCurrentAccount = new SavingCurrentAccount('Mehdi', 1298, 12.5, 150);
+// $savingCurrentAccount = new SavingCurrentAccount('Mehdi', 1298, 12.5, 150);
 
-$savingCurrentAccount->addIntressting();
+// $savingCurrentAccount->addIntressting();
 
-$savingCurrentAccount->remove(300);
+// $savingCurrentAccount->remove(300);
 
-var_dump($savingCurrentAccount);
+// var_dump($savingCurrentAccount);
 
-$client = new ClientAccount;
 
-var_dump($client);
+// var_dump($client);
