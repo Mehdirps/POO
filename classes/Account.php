@@ -3,7 +3,7 @@
 /**
  * Bank Account
  */
- class Account
+class Account
 {
     // Propriétés
     /**
@@ -12,7 +12,7 @@
      * @var string
      */
     // public $owner;
-    private $owner;
+    protected $owner;
 
     /**
      * Account pay
@@ -20,7 +20,7 @@
      * @var float
      */
     // public $pay;
-    private $pay;
+    protected $pay;
 
 
     /**
