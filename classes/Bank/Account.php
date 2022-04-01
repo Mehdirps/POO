@@ -1,9 +1,9 @@
 <?php
-
+namespace App\Bank;
 /**
  * Bank Account
  */
-class Account
+abstract class Account
 {
     // Propriétés
     /**

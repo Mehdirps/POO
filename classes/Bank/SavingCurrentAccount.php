@@ -1,5 +1,9 @@
 <?php
+namespace App\Bank;
 
+/**
+ * Current account with intressting
+ */
 class SavingCurrentAccount extends SavingAccount
 {
     /**

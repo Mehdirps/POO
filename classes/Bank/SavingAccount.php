@@ -1,4 +1,5 @@
 <?php
+namespace App\Bank;
 
 /**
  *  Account with intresting, extends account

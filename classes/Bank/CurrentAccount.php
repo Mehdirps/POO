@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Bank;
 /**
  * Extends object Account for create a current account
  */
